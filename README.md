@@ -1,201 +1,147 @@
-Oraculum CashFlow Sentinel
-=========================
+ORACULUM – CASHFLOW SENTINEL
+===========================
 
-Autonomous early-warning system for cash flow strangulation caused by logistics.
+Early warning system for logistics-driven cashflow strangulation.
 
-Oraculum CashFlow Sentinel is a SaaS-oriented engine that detects when cash becomes trapped
-between supplier payments, logistics delays, inventory stagnation, and customer collections.
+------------------------------------------------------------------
 
-Designed explicitly for CEOs and CFOs — not for operational dashboards.
+OVERVIEW
+--------
+Oraculum Cashflow Sentinel is an early warning system designed to detect
+cashflow strangulation caused by logistics and operational inefficiencies.
 
+The system focuses on identifying hidden financial stress signals that
+traditional accounting systems detect too late, especially in
+logistics-heavy SMEs and export-oriented operations.
 
----------------------------------------------------------------------
+This project is part of the Oraculum Systems initiative, aimed at building
+decision intelligence tools for real-world operational risk.
 
-WHAT PROBLEM DOES IT SOLVE?
---------------------------
+------------------------------------------------------------------
 
-Many importers and distributors:
-- Sell well
-- Have demand
-- Show healthy margins
-- Yet consistently suffer from cash tension
-
-The root cause is rarely margin or sales volume.
-
-The root cause is time.
-
-Paying suppliers today, selling weeks later, and collecting months after
-silently strangles working capital.
-
-This system detects that dynamic before it becomes critical.
-
-
----------------------------------------------------------------------
-
-CORE PRINCIPLE
---------------
-
-This system treats cash flow as a dynamic system under time constraints,
-not as a static accounting outcome.
-
-Cash is modeled as capital in motion, exposed to temporal friction.
-
-
----------------------------------------------------------------------
-
-WHAT DOES THE SYSTEM DO?
------------------------
-
-Autonomously and continuously, the system:
-
-- Computes real Cash Conversion Cycles per shipment, not period averages
-- Detects cash frozen in inventory, transit, or delayed collections
-- Quantifies the daily liquidity cost of operational delays
-- Translates financial risk into executive-readable alerts
-
-No dashboards are required to create value.
-Signal clarity is prioritized over data exhaust.
-
-
----------------------------------------------------------------------
-
-WHAT KIND OF ALERTS DOES IT GENERATE?
-------------------------------------
-
-Examples of real alerts:
-
-- CRITICAL: $327,000 trapped for 41 days due to inventory stagnation
-- WARNING: Logistics delay consuming $9,400 per day
-- CRITICAL: Customer payment delay putting $96,500 at risk
-- POSITIVE: $213,000 cash released compared to historical baseline
-
-Alerts are expressed in money and time, not technical metrics.
-
-
----------------------------------------------------------------------
-
-WHAT THIS SYSTEM IS NOT
-----------------------
-
-- Not a BI or analytics dashboard
-- Not an accounting or ERP replacement
-- Not a real-time treasury or trading system
-
-It complements ERPs by observing what they do not:
-the temporal friction of cash.
-
-
----------------------------------------------------------------------
-
-QUICK DEMO
-----------
-
-Run a fully functional demo with realistic (synthetic) data:
-
-python -m scripts.run_demo
-
-Expected output:
-
-=== ORACULUM CASHFLOW SENTINEL ===
-Company: Importadora Andina
-Cash Gap (days): 68
-Frozen Capital Ratio: 40.00%
-Risk Level: HIGH
-Insight: Severe cashflow strangulation detected
-
-This demo illustrates how the system detects cash flow risk
-before it becomes visible in financial statements.
-
-
----------------------------------------------------------------------
-
-HIGH-LEVEL SYSTEM ARCHITECTURE
-------------------------------
-
-CSV / ERP Data
-    ↓
-Ingestion & Validation
-    ↓
-Cash Flow Metrics Engine
-    ↓
-Risk & Alert Rules Engine
-    ↓
-Email / WhatsApp Executive Alerts
-
-The architecture is intentionally minimal:
-- Cron-based execution
-- Autonomous operation
-- Scales across companies, countries, and currencies
-
-
----------------------------------------------------------------------
-
-PROJECT STRUCTURE
+PROBLEM STATEMENT
 -----------------
+Many companies experience cashflow crises not because of lack of sales,
+but due to:
 
-oraculum-cashflow-sentinel/
-├── config/        Global settings and alert thresholds
-├── data/          Raw and processed data (local and demo)
-├── src/
-│   ├── core/      Core financial logic (intellectual property)
-│   ├── ingestion/ Data loading and validation
-│   ├── alerts/    Alert generation and delivery
-│   ├── models/    Domain entities
-│   ├── jobs/      Autonomous scheduled jobs
-│   └── utils/     Shared helpers
-├── tests/         Core logic tests
-├── docs/          Product and business documentation
-└── scripts/       Bootstrap and demo scripts
+- Inventory accumulation
+- Delayed logistics cycles
+- Poor turnover ratios
+- Operational bottlenecks invisible to standard financial reports
 
+By the time accounting reflects the problem, the company is already
+financially constrained.
 
----------------------------------------------------------------------
+Cashflow Sentinel addresses this gap by monitoring operational indicators
+that precede financial collapse.
 
-CORE FINANCIAL METRICS
----------------------
+------------------------------------------------------------------
 
-The system computes real, operational metrics:
-
-- DPO_real: Days from supplier payment to inventory arrival
-- DIO_real: Days inventory remains unsold
-- DSO_real: Days from sale to cash collection
-
-CCC_real = DPO_real + DIO_real + DSO_real
-
-Unlike textbook CCC, CCC_real is computed per shipment
-and weighted by capital exposure rather than period averages.
-
-From these metrics, the system derives:
-- Cash frozen amount
-- Daily cash cost of delays
-- Cash-at-risk by shipment, supplier, customer, or period
-
-
----------------------------------------------------------------------
-
-CONFIGURATION
+CORE FEATURES
 -------------
+- Early detection of logistics-driven cashflow stress
+- KPI-based risk signaling (green / yellow / red zones)
+- Time-series analysis of operational metrics
+- Interactive dashboard for decision-makers
+- Designed for non-technical users
 
-All thresholds are configurable per company and environment.
+------------------------------------------------------------------
 
-Example (config/thresholds.yaml):
+KEY INDICATORS (CURRENT VERSION)
+--------------------------------
+- Inventory Turnover Velocity
+- Logistics Cycle Time
+- Cash Conversion Cycle (CCC)
+- Working Capital Stress Index (composite metric)
+- Trend-based anomaly detection
 
-delay_days_threshold: 5
-cash_frozen_threshold: 50000
-daily_cash_cost_threshold: 1000
-ccc_deviation_ratio: 1.2
+------------------------------------------------------------------
 
+TECH STACK
+----------
+- Python
+- Pandas / NumPy
+- Streamlit (interactive dashboard)
+- Matplotlib / Plotly
+- Modular analytical pipeline
 
----------------------------------------------------------------------
+------------------------------------------------------------------
+
+ARCHITECTURE OVERVIEW
+---------------------
+1. Data ingestion (synthetic or real operational data)
+2. KPI normalization and scaling
+3. Signal extraction and trend analysis
+4. Risk classification engine
+5. Visualization layer (dashboard)
+
+The system is designed to be extensible:
+new indicators and models can be added without refactoring the core.
+
+------------------------------------------------------------------
+
+CURRENT STATUS
+--------------
+Version: v0.3 – Core pipeline stable
+
+✔ Core KPIs implemented
+✔ Analytical pipeline operational
+✔ Dashboard functional
+✔ Synthetic data validated
+
+------------------------------------------------------------------
+
+ROADMAP
+-------
+v0.4
+- Improved anomaly detection logic
+- KPI weighting calibration
+
+v0.6
+- Scenario simulation (what-if analysis)
+- Export-ready reporting
+
+v1.0
+- Production-ready release
+- SME-oriented configuration
+- Market-viable MVP
+
+------------------------------------------------------------------
+
+HOW TO RUN
+----------
+1. Clone the repository
+2. Create a virtual environment
+3. Install dependencies:
+
+   pip install -r requirements.txt
+
+4. Run the application:
+
+   streamlit run app.py
+
+------------------------------------------------------------------
 
 DESIGN PHILOSOPHY
 -----------------
+This project prioritizes:
+- Interpretability over black-box models
+- Operational causality over pure financial metrics
+- Decision support over prediction theater
 
-Oraculum CashFlow Sentinel is designed to be:
+The goal is not to predict bankruptcy,
+but to give managers time to act before it happens.
 
-- Autonomous rather than interactive
-- Financially expressive rather than metric-heavy
-- Executive-facing rather than operationally noisy
+------------------------------------------------------------------
 
-The system exists to answer one question daily:
+AUTHOR
+------
+Leandro D. Coronel
+Founder – Oraculum Systems
 
-"Is time silently destroying cash anywhere in the operation?"
+------------------------------------------------------------------
+
+DISCLAIMER
+----------
+This project is provided for research and decision-support purposes.
+It is not a substitute for professional financial advice.
