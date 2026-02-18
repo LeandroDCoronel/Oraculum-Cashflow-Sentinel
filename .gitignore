@@ -1,13 +1,22 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
 
-# Virtual env
+# Virtual environments
+.venv/
 venv/
 
 # Data
 data/raw/
-data/demo/*.csv
+data/interim/
+*.csv
+*.parquet
+*.pkl
+
+# Notebooks
+.ipynb_checkpoints/
 
 # OS
 .DS_Store
+Thumbs.db
