@@ -1,147 +1,177 @@
-ORACULUM – CASHFLOW SENTINEL
-===========================
+ORACULUM – CASHFLOW SENTINEL (v2)
 
-Early warning system for logistics-driven cashflow strangulation.
-
-------------------------------------------------------------------
+Softsensor core for early detection of logistics-driven cashflow risk.
 
 OVERVIEW
---------
-Oraculum Cashflow Sentinel is an early warning system designed to detect
-cashflow strangulation caused by logistics and operational inefficiencies.
 
-The system focuses on identifying hidden financial stress signals that
-traditional accounting systems detect too late, especially in
-logistics-heavy SMEs and export-oriented operations.
+Cashflow Sentinel v2 is the analytical softsensor core of the Oraculum
+Cashflow Sentinel system.
 
-This project is part of the Oraculum Systems initiative, aimed at building
-decision intelligence tools for real-world operational risk.
+This repository contains the second-generation internal engine designed
+to quantify, explain, and score cashflow risk caused by operational and
+logistics inefficiencies.
 
-------------------------------------------------------------------
+Unlike v1 (Commercial MVP), this version:
 
-PROBLEM STATEMENT
------------------
-Many companies experience cashflow crises not because of lack of sales,
-but due to:
+Has no UI or dashboard
 
-- Inventory accumulation
-- Delayed logistics cycles
-- Poor turnover ratios
-- Operational bottlenecks invisible to standard financial reports
+Is not a finished product
 
-By the time accounting reflects the problem, the company is already
-financially constrained.
+Is designed as a reusable, extensible decision-intelligence core
 
-Cashflow Sentinel addresses this gap by monitoring operational indicators
-that precede financial collapse.
+WHAT THIS IS (AND IS NOT)
 
-------------------------------------------------------------------
+This repository IS:
 
-CORE FEATURES
--------------
-- Early detection of logistics-driven cashflow stress
-- KPI-based risk signaling (green / yellow / red zones)
-- Time-series analysis of operational metrics
-- Interactive dashboard for decision-makers
-- Designed for non-technical users
+A deterministic + scoring-based softsensor
 
-------------------------------------------------------------------
+A modular analytical core
 
-KEY INDICATORS (CURRENT VERSION)
---------------------------------
-- Inventory Turnover Velocity
-- Logistics Cycle Time
-- Cash Conversion Cycle (CCC)
-- Working Capital Stress Index (composite metric)
-- Trend-based anomaly detection
+A causal decision-support engine
 
-------------------------------------------------------------------
+A foundation for multiple downstream products
 
-TECH STACK
-----------
-- Python
-- Pandas / NumPy
-- Streamlit (interactive dashboard)
-- Matplotlib / Plotly
-- Modular analytical pipeline
+This repository IS NOT:
 
-------------------------------------------------------------------
+A dashboard application
 
-ARCHITECTURE OVERVIEW
----------------------
-1. Data ingestion (synthetic or real operational data)
-2. KPI normalization and scaling
-3. Signal extraction and trend analysis
-4. Risk classification engine
-5. Visualization layer (dashboard)
+A financial accounting tool
 
-The system is designed to be extensible:
-new indicators and models can be added without refactoring the core.
+A black-box predictive model
 
-------------------------------------------------------------------
+A finished commercial product
 
-CURRENT STATUS
---------------
-Version: v0.3 – Core pipeline stable
+PROBLEM DOMAIN
 
-✔ Core KPIs implemented
-✔ Analytical pipeline operational
-✔ Dashboard functional
-✔ Synthetic data validated
+Many organizations suffer cashflow crises not due to lack of sales,
+but due to logistics-driven capital lock-in, such as:
 
-------------------------------------------------------------------
+Excess inventory dwell time
 
-ROADMAP
--------
-v0.4
-- Improved anomaly detection logic
-- KPI weighting calibration
+Extended receivables cycles
 
-v0.6
-- Scenario simulation (what-if analysis)
-- Export-ready reporting
+Misaligned payables timing
 
-v1.0
-- Production-ready release
-- SME-oriented configuration
-- Market-viable MVP
+Operational bottlenecks invisible to accounting systems
 
-------------------------------------------------------------------
+By the time financial statements reflect the issue,
+the operational damage is already done.
 
-HOW TO RUN
-----------
-1. Clone the repository
-2. Create a virtual environment
-3. Install dependencies:
+Cashflow Sentinel v2 targets this pre-financial risk layer.
 
-   pip install -r requirements.txt
+CORE CONCEPT: SOFTSENSOR
 
-4. Run the application:
+Cashflow Sentinel v2 operates as a softsensor:
 
-   streamlit run app.py
+Inputs: operational and logistics indicators
 
-------------------------------------------------------------------
+Processing: normalization, weighting, rule-based reasoning
+
+Outputs: severity, confidence, and causal explanations
+
+It does not predict bankruptcy.
+It signals operational stress early enough to act.
+
+ARCHITECTURE
+
+Directory structure:
+
+src/sentinel/
+
+metrics/
+Raw operational metrics and transformations
+(e.g. cash gap calculation)
+
+rules/
+Risk evaluation and scoring logic
+
+signals/
+Structured definitions of cashflow risk signals
+
+The architecture is designed to be extensible.
+New metrics or rules can be added without refactoring existing logic.
+
+Design principles:
+
+Explicit causality
+
+Interpretability over opacity
+
+Modular extensibility
+
+No hidden state
+
+CURRENT CAPABILITIES
+
+Cash gap calculation (inventory + receivables − payables)
+
+Capital freeze ratio assessment
+
+Normalized severity scoring (0.0 – 1.0)
+
+Confidence estimation
+
+Human-readable causal explanations
+
+EXAMPLE USAGE (CONCEPTUAL)
+
+Compute operational metrics (cash gap, frozen capital)
+
+Pass metrics into the evaluation engine
+
+Receive a structured cashflow risk signal containing:
+
+Severity score
+
+Confidence level
+
+Explanatory reasons
+
+Raw contributing values
+
+VERSIONING NOTE
+
+v1.x:
+Commercial MVP with dashboard and fixed scope.
+Frozen and released separately.
+
+v2.x:
+Analytical softsensor core (this repository).
+
+v2 represents a conceptual and architectural evolution,
+not a cosmetic update.
+
+INTENDED EXTENSIONS
+
+Multi-indicator aggregation
+
+Scenario simulation (what-if stress testing)
+
+Time-series trend accumulation
+
+Industry-specific calibration profiles
+
+Integration into dashboards, APIs, or decision engines
 
 DESIGN PHILOSOPHY
------------------
-This project prioritizes:
-- Interpretability over black-box models
-- Operational causality over pure financial metrics
-- Decision support over prediction theater
 
-The goal is not to predict bankruptcy,
-but to give managers time to act before it happens.
+This system prioritizes:
 
-------------------------------------------------------------------
+Operational truth over financial cosmetics
+
+Explainability over prediction theater
+
+Decision advantage over algorithmic novelty
+
+The goal is not to look smart.
+The goal is to give managers time.
 
 AUTHOR
-------
+
 Leandro D. Coronel
 Founder – Oraculum Systems
 
-------------------------------------------------------------------
-
 DISCLAIMER
-----------
-This project is provided for research and decision-support purposes.
-It is not a substitute for professional financial advice.
+
+This software is provided for research and decision-support purposes only.
+It does not constitute financial, legal, or accounting advice.
