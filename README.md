@@ -1,3 +1,11 @@
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)![Dashboard](https://img.shields.io/badge/Streamlit-Dashboard-red)
+
+**Early-warning risk engine for cashflow (inventory & logistics).** Deterministic signals **GREEN / YELLOW / RED** + decision-maker dashboard. v1.0 commercial MVP validated with synthetic scenarios.
+
+**Run**
+pip install -r requirements.txt
+streamlit run app.py
+
 ORACULUM – CASHFLOW SENTINEL (v2)
 
 Softsensor core for early detection of logistics-driven cashflow risk.
